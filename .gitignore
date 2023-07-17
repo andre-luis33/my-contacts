@@ -1,0 +1,8 @@
+## api
+/api/node_modules/
+
+## fe
+/fe/node_modules/
+
+## all
+.env
