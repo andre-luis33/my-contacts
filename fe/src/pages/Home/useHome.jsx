@@ -30,6 +30,7 @@ export default function useHome() {
 
 			console.log(error);
 			setHasError(true);
+			setContacts([]);
 
 		} finally {
 			setIsLoading(false);

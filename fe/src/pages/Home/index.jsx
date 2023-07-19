@@ -37,33 +37,32 @@ export default function Home() {
 		handleDeleteContact,
 	} = useHome();
 
+	const hasContacts   = contacts.length > 0;
+	const isListEmpty   = !hasError && (!isLoading && !hasContacts);
+	const isSearchEmpty = !hasError && (hasContacts && filteredContacts.length < 1);
+
 	return (
 		<Container>
 			<Loader isLoading={isLoading} />
 
-			{(contacts.length > 0 && !hasError) && (
+			{(hasContacts && !hasError) && (
 				<InputSearchContainer>
 					<input type="text" placeholder='Pesquisar Contato...' value={searchTerm} onChange={handleChangeSearchTerm} />
 				</InputSearchContainer>
 			)}
 
-			<Header hasError={hasError} contactsLength={contacts.length} filteredContactsLength={filteredContacts.length} />
+			<Header
+				hasError={hasError}
+				contactsLength={contacts.length}
+				filteredContactsLength={filteredContacts.length}
+			/>
 
-			{hasError && (
-				<ErrorStatus onTryAgain={handleTryAgain} />
-			)}
+			{hasError && <ErrorStatus onTryAgain={handleTryAgain} />}
+			{isListEmpty && <EmptyList />}
+			{isSearchEmpty && <SearchNotFound searchTerm={searchTerm} />}
 
-			{!hasError && (
+			{hasContacts && (
 				<>
-					{(contacts.length < 1 && !isLoading) && (
-						<EmptyList />
-					)}
-
-
-					{(contacts.length > 0 && filteredContacts.length < 1 && !isLoading) && (
-						<SearchNotFound searchTerm={searchTerm} />
-					)}
-
 					<ContactsList
 						filteredContacts={filteredContacts}
 						orderBy={orderBy}
@@ -79,7 +78,6 @@ export default function Home() {
 						confirmLabel="Deletar"
 						onCancel={handleCloseDeleteModal}
 						onConfirm={handleConfirmDeleteContact}
-
 					>
 						<p>Esta ação não poderá ser desfeita!</p>
 					</Modal>
