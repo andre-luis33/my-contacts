@@ -5,14 +5,12 @@ import {
 	Container,
 	InputSearchContainer,
 	ListHeader,
-	Card,
-	SearchNotFoundContainer
+	Card
 } from './styles';
 
 import arrow from '../../assets/images/arrow.svg';
 import edit from '../../assets/images/edit.svg';
 import trash from '../../assets/images/trash.svg';
-import magnifierQuestion from '../../assets/images/magnifier-question.svg';
 
 import Loader from '../../components/Loader';
 import Modal from '../../components/Modal';
@@ -22,6 +20,7 @@ import ErrorStatus from './components/ErrorStatus';
 import EmptyList from './components/EmptyList';
 
 import formatPhone from '../../utils/formatPhone';
+import SearchNotFound from './components/SearchNotFound';
 
 
 export default function Home() {
@@ -68,12 +67,7 @@ export default function Home() {
 
 
 					{(contacts.length > 0 && filteredContacts.length < 1 && !isLoading) && (
-						<SearchNotFoundContainer>
-							<img src={magnifierQuestion} alt="Ícone de Lupa Vermelha" />
-							<span>
-								Nenhum resultado foi encontrado para <strong>{`"${searchTerm}"`}</strong>.
-							</span>
-						</SearchNotFoundContainer>
+						<SearchNotFound />
 					)}
 
 					{filteredContacts.length > 0 && (
