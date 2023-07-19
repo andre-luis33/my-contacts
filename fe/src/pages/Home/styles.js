@@ -103,25 +103,6 @@ export const Card = styled.div`
 	}
 `;
 
-export const EmptyListContainer = styled.div`
-	margin-top: 16px;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	row-gap: 8px;
-
-	p {
-		width: 90%;
-		text-align: center;
-		color: ${({ theme }) => theme.colors.gray[200]};
-
-		strong {
-			color: ${({ theme }) => theme.colors.primary.main};
-		}
-	}
-`;
-
 export const SearchNotFoundContainer = styled.div`
 	margin-top: 16px;
 

@@ -6,24 +6,23 @@ import {
 	InputSearchContainer,
 	ListHeader,
 	Card,
-	EmptyListContainer,
 	SearchNotFoundContainer
 } from './styles';
 
 import arrow from '../../assets/images/arrow.svg';
 import edit from '../../assets/images/edit.svg';
 import trash from '../../assets/images/trash.svg';
-import emptyBox from '../../assets/images/empty-box.svg';
 import magnifierQuestion from '../../assets/images/magnifier-question.svg';
 
 import Loader from '../../components/Loader';
 import Modal from '../../components/Modal';
 
+import Header from './components/Header';
+import ErrorStatus from './components/ErrorStatus';
+import EmptyList from './components/EmptyList';
 
 import formatPhone from '../../utils/formatPhone';
 
-import Header from './components/Header';
-import ErrorStatus from './components/ErrorStatus';
 
 export default function Home() {
 
@@ -64,13 +63,7 @@ export default function Home() {
 			{!hasError && (
 				<>
 					{(contacts.length < 1 && !isLoading) && (
-						<EmptyListContainer>
-							<img src={emptyBox} alt="Caixa Vazia" />
-							<p>
-								Você ainda não tem nenhum contato cadastrado!
-								Clique no botão <strong>”Novo contato”</strong> à cima para cadastrar o seu primeiro!
-							</p>
-						</EmptyListContainer>
+						<EmptyList />
 					)}
 
 
