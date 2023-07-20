@@ -34,8 +34,15 @@ export const Card = styled.div`
 	align-items: center;
 	justify-content: space-between;
 
+	transition: .2s all;
+
 	& + & {
 		margin-top: 16px;
+	}
+
+	&:hover {
+		box-shadow: 0 4px 10px rgba(0,0,0, .2);
+		transform: scale(.99);
 	}
 
 	.info {
