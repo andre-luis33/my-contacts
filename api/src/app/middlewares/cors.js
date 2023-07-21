@@ -1,6 +1,8 @@
 const allowedOrigins = [
 	'http://localhost:3000',
-	'https://my-contacts-sepia-one.vercel.app'
+	'https://my-contacts-sepia-one.vercel.app',
+	'https://my-website-andre-luis33.vercel.app/',
+	'https://my-website-andre-luis33.vercel.app/english'
 ];
 
 
