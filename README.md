@@ -1,3 +1,8 @@
 # my-contacts
 
-Projeto desenvolvido no curso JStack, em React + Node.js + Postgres
+Projeto de CRUD desenvolvido no curso JStack
+
+## Tecnologias
+- ReactJS
+- NodeJS
+- Postgres
